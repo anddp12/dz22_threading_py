@@ -21,17 +21,25 @@ def task1(): # функция для наполнения списка случ�
     l1.release()
     return numbers
 
+sm = threading.Semaphore(2)
+
 def task2(): # функция для вычисления суммы чисел в списке
+    global sm
+    sm.acquire()
     global numbers
     s = sum(numbers)
     print(s)
+    sm.release()
     return s
 
 def task3(): # функция для вычисления среднеарифметического чисел в списке
+    global sm
+    sm.acquire()
     global numbers
     s = sum(numbers)
     a = s/len(numbers)
     print(a)
+    sm.release()
     return a
 
 
