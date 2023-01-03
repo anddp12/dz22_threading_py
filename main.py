@@ -17,7 +17,7 @@ def task1(): # функция для наполнения списка случ�
     global numbers
     for i in range(10):
         numbers.append(randint(1, 100))
-    print(numbers)
+    print(f'Список из случайный чисел - {numbers}')
     l1.release()
     return numbers
 
@@ -28,7 +28,7 @@ def task2(): # функция для вычисления суммы чисел 
     sm.acquire()
     global numbers
     s = sum(numbers)
-    print(s)
+    print(f'Сумма чисел из списка - {s}')
     sm.release()
     return s
 
@@ -38,7 +38,7 @@ def task3(): # функция для вычисления среднеарифм
     global numbers
     s = sum(numbers)
     a = s/len(numbers)
-    print(a)
+    print(f'Среднеарифметического чисел в списке - {a}')
     sm.release()
     return a
 
