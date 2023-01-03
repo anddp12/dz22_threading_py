@@ -23,3 +23,11 @@ def task2(): # функция для вычисления суммы чисел 
     return s
 
 print (task2())
+
+def task3(): # функция для вычисления среднеарифметического чисел в списке
+    global numbers
+    s = sum(numbers)
+    a = s/len(numbers)
+    return a
+
+print (task3())
