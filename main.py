@@ -7,13 +7,18 @@ from random import randint
 # Перший потік знаходить суму елементів списку, другий потік знаходить середнє арифметичне значення у списку. 
 # Отриманий список, сума та середнє арифметичне виводяться на екран. 
 
+l1 = threading.Lock()
+
 numbers = []
 
 def task1(): # функция для наполнения списка случайными числами
+    global l1
+    l1.acquire()
     global numbers
     for i in range(10):
         numbers.append(randint(1, 100))
     print(numbers)
+    l1.release()
     return numbers
 
 def task2(): # функция для вычисления суммы чисел в списке
